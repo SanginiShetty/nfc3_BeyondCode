@@ -15,7 +15,7 @@ const Blog = () => {
     };
 
     fetchBlogs();
-  }, []); // Empty dependency array to run only once when the component mounts
+  }, []);
 
   return (
     <div className="bg-gray-900 min-h-screen p-8">
