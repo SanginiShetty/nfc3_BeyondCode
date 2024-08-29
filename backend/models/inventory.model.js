@@ -40,7 +40,6 @@ const inventorySchema = new mongoose.Schema(
         ngoId:{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Ngo",
-
         },
         assignedTo: {
             type: mongoose.Schema.Types.ObjectId,
