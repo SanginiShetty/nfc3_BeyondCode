@@ -14,6 +14,8 @@ import ImpactManagement from './Components/ImpactManagement';
 import StaffManagement from './Components/StaffManagement';
 import EventManagement from './Components/EventManagement';
 import AddBlog from './components/AddBlog';
+import Info from './components/NGO/Info';
+
 function App() {
   return (
     <Router>
@@ -26,6 +28,8 @@ function App() {
         <Route path="/AddBlog" element={<AddBlog/>}/>
         <Route path="/community" element={<OpenCommunity />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/Info" element={<Info />} />
+        
 
         {/* Add more routes here */}
         {/* <Route path="/" element={<Home />} /> */}

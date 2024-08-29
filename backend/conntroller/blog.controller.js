@@ -1,18 +1,18 @@
-import { Blog } from '../models/blog.model.js'; 
+import { Blog } from '../models/blog.model.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 
 export const createBlog = asyncHandler(async (req, res) => {
-    const { title, slug, description, content, blogImage, tags, author, excerpt } = req.body;
-
+    const { title, description, content, blogImage, tags, author, excerpt } = req.body;
+    console.log("req", req.data)
     // Check for required fields
-    if (!title || !slug || !description || !content || !tags || !author) {
+    if (!title || !description || !content || !tags || !author) {
+
         res.status(400);
         throw new Error('All required fields must be filled');
     }
 
     const blog = new Blog({
         title,
-        slug,
         description,
         content,
         blogImage,
@@ -31,17 +31,18 @@ export const createBlog = asyncHandler(async (req, res) => {
 
 
 export const getAllBlogs = asyncHandler(async (req, res) => {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find({}).sort({ createdAt: -1 }); 
     res.json({
         message: 'All blog posts',
         blogs,
     });
 });
 
+
 export const updateBlog = asyncHandler(async (req, res) => {
     const { title, description, content, blogImage, tags, excerpt } = req.body;
 
-    const blog = await Blog.findOne({ slug: req.params.slug });
+    const blog = await Blog.findOne({ _id: req.params._id });
 
     if (!blog) {
         res.status(404);
@@ -65,7 +66,7 @@ export const updateBlog = asyncHandler(async (req, res) => {
 
 
 export const deleteBlog = asyncHandler(async (req, res) => {
-    const blog = await Blog.findOne({ slug: req.params.slug });
+    const blog = await Blog.findOne({ _id: req.params._id });
 
     if (!blog) {
         res.status(404);
