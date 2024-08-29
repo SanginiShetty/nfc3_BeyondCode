@@ -10,6 +10,8 @@ const SignUp = () => {
     fullName: "",
   });
 
+  const [error, setError] = useState(null); // State to handle errors
+
   // Handle form field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +24,7 @@ const SignUp = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null); // Clear previous errors
 
     try {
       // Make an axios POST request to your backend API
@@ -32,7 +35,11 @@ const SignUp = () => {
 
       // Redirect or show success message based on your app's requirements
     } catch (error) {
-      console.error('Sign Up Error:', error.response ? error.response.data : error.message);
+
+      console.log("error",error.response)
+
+      setError(error.response.data.message);
+
     }
   };
 
@@ -102,6 +109,8 @@ const SignUp = () => {
             Already have an account? <Link to="/login" className="text-indigo-600 hover:underline">Login</Link>
           </p>
         </div>
+
+        {error && <p className="mt-4 text-red-300 ">{error}</p>}
 
         <Link to="/RegNgo">
           <button className="w-full mt-4 px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700">
