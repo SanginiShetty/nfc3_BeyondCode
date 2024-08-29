@@ -1,7 +1,15 @@
 import React from 'react';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Contact = () => {
+  // Step 1: Define the coordinates
+  const coordinates = {
+    lat: 19.45591000,
+    lng:  72.81136000 
+  };
+
+  // Step 2: Construct the Google Maps embed URL using template literals
+  const mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354344963086!2d${coordinates.lng}!3d${coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5777dd8f7b0c3a1!2sGoogle%20Australia!5e0!3m2!1sen!2sus!4v1615882329001!5m2!1sen!2sus`;
+
   return (
     <div className="max-w-7xl mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
@@ -68,8 +76,9 @@ const Contact = () => {
       </div>
 
       <div className="mt-8">
+        {/* Step 3: Use the constructed mapSrc */}
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354344963086!2d144.95592331577413!3d-37.81720927975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5777dd8f7b0c3a1!2sGoogle%20Australia!5e0!3m2!1sen!2sus!4v1615882329001!5m2!1sen!2sus"
+          src={mapSrc}
           width="100%"
           height="450"
           style={{ border: 0 }}
