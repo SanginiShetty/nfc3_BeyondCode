@@ -6,7 +6,7 @@ const userBlogRouter = Router();
 
 userBlogRouter.route("/create").post(createBlog);
 userBlogRouter.route("/getAll").get(getAllBlogs);
-userBlogRouter.route("/update/:slug").put(updateBlog);
-userBlogRouter.route("/delete/:slug").delete(deleteBlog);
+userBlogRouter.route("/update/:id").put(updateBlog);
+userBlogRouter.route("/delete/:id").delete(deleteBlog);
 
 export { userBlogRouter };
