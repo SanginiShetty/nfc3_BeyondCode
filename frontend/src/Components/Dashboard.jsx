@@ -12,7 +12,7 @@ const Dashboard = () => {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     datasets: [
       {
-        label: "Sales",
+        label: "Helped",
         backgroundColor: "#3E8B96",
         borderColor: "#3E8B96",
         borderWidth: 1,
@@ -21,7 +21,7 @@ const Dashboard = () => {
         data: [40, 60, 80, 70, 60, 50],
       },
       {
-        label: "Purchase",
+        label: "NGO Connected",
         backgroundColor: "#a0aec0",
         borderColor: "#a0aec0",
         borderWidth: 1,
@@ -36,13 +36,13 @@ const Dashboard = () => {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     datasets: [
       {
-        label: "Ordered",
+        label: "Projects",
         borderColor: "#3E8B96",
         fill: false,
         data: [2000, 2500, 3000, 3500, 3200, 4000],
       },
       {
-        label: "Delivered",
+        label: "Events",
         borderColor: "#718096",
         fill: false,
         data: [1800, 2400, 2700, 3100, 2900, 3700],
@@ -55,7 +55,7 @@ const Dashboard = () => {
       {/* Sidebar */}
       <div className="w-64 bg-white shadow-lg">
         <div className="p-4 text-center">
-          <h1 className="text-xl font-bold text-[#3E8B96]">KANBAN</h1>
+          <h1 className="text-xl font-bold text-[#3E8B96]">NGO Connec+</h1>
         </div>
         <ul className="mt-4">
           <li className="px-6 py-2 hover:bg-gray-100">
@@ -72,11 +72,11 @@ const Dashboard = () => {
           </li>
           <li className="px-6 py-2 hover:bg-gray-100">
             <FontAwesomeIcon icon={faShoppingCart} className="mr-2 text-gray-600" />
-            Orders
+            Projects
           </li>
           <li className="px-6 py-2 hover:bg-gray-100">
             <FontAwesomeIcon icon={faCogs} className="mr-2 text-gray-600" />
-            Manage Store
+            Events
           </li>
         </ul>
         <div className="mt-auto">
@@ -108,24 +108,24 @@ const Dashboard = () => {
             <div className="flex items-center justify-between mt-4">
               <div>
                 <p className="text-xl font-semibold text-[#3E8B96]">₹18,300</p>
-                <p className="text-gray-600">Revenue</p>
+                <p className="text-gray-600">Donation</p>
               </div>
               <div>
                 <p className="text-xl font-semibold text-[#3E8B96]">₹832</p>
-                <p className="text-gray-600">Sales</p>
+                <p className="text-gray-600">Aid</p>
               </div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h2 className="text-gray-600">Purchase Overview</h2>
+            <h2 className="text-gray-600">Donation Summary</h2>
             <div className="flex items-center justify-between mt-4">
               <div>
                 <p className="text-xl font-semibold text-[#3E8B96]">₹13,573</p>
-                <p className="text-gray-600">Cost</p>
+                <p className="text-gray-600">Crowd Funding</p>
               </div>
               <div>
                 <p className="text-xl font-semibold text-[#3E8B96]">82</p>
-                <p className="text-gray-600">Purchase</p>
+                <p className="text-gray-600">Fund Raising</p>
               </div>
             </div>
           </div>
