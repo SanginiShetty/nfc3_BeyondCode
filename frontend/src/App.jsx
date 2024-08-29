@@ -42,7 +42,7 @@ function App() {
 
         {/* Add more routes here */}
         {/* <Route path="/" element={<Home />} /> */}
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
