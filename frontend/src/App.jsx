@@ -14,6 +14,9 @@ import ImpactManagement from './Components/ImpactManagement';
 import StaffManagement from './Components/StaffManagement';
 import EventManagement from './Components/EventManagement';
 import AddBlog from './components/AddBlog';
+import DonationManagement from './Components/DonationManagement';
+import MoneyTracking from './Components/MoneyTracking';
+import CrowdFunding from './Components/CrowdFunding';
 function App() {
   return (
     <Router>
@@ -26,6 +29,10 @@ function App() {
         <Route path="/AddBlog" element={<AddBlog/>}/>
         <Route path="/community" element={<OpenCommunity />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="InventoryManagement" element={<InventoryManagement />} />
+        <Route path="DonorManagement" element={<DonorManagement />} />
+        <Route path="MoneyTracking" element={<MoneyTracking/>} />
+        <Route path="Crowd" element={<CrowdFunding/>} />
 
         {/* Add more routes here */}
         {/* <Route path="/" element={<Home />} /> */}
