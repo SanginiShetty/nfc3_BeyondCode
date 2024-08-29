@@ -5,10 +5,10 @@ import SignUp from './components/SignUp';
 import Home from './components/Home'
 import Blog from './Components/Blog';
 import RegNgo from './components/RegNgo';
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
 import OpenCommunity from './Components/OpenCommunty';
 import Contact from './Components/Contact';
-import InventoryManagement from './Components/Inventory';
+// import InventoryManagement from './Components/Inventory';
 import DonorManagement from './Components/DonorManagement';
 import ImpactManagement from './Components/ImpactManagement';
 import StaffManagement from './Components/StaffManagement';
