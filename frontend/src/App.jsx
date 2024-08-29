@@ -15,6 +15,7 @@ import StaffManagement from './Components/StaffManagement';
 import EventManagement from './Components/EventManagement';
 import AddBlog from './components/AddBlog';
 import Info from './components/NGO/Info';
+import DisplayInventory from './components/NGO/DisplayInventory';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/community" element={<OpenCommunity />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Info" element={<Info />} />
+        <Route path="/DisplayInventory" element={<DisplayInventory />} />
         
 
         {/* Add more routes here */}
