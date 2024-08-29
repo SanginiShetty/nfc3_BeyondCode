@@ -24,7 +24,7 @@ const projectSchema = new mongoose.Schema(
             trim: true,
         },
         
-        image:{
+        projectImage:{
             type: String,
             required: true,
             trim: true,
