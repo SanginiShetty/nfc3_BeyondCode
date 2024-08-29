@@ -19,6 +19,7 @@ import { projectRouter } from "./routers/project.routes.js";
 import { userDonation } from "./routers/donation.routes.js";
 import { userBlogRouter } from "./routers/blog.routes.js";
 import { InventoryRouter } from "./routers/inventory.routes.js";
+import { ngoRoutes } from "./routers/ngo.routes.js";
 
 
 app.use("/api/v1/auth", userRouter);
@@ -26,5 +27,6 @@ app.use("/api/v1/project",projectRouter)
 app.use("/api/v1/donation", userDonation);
 app.use("/api/v1/blog", userBlogRouter);
 app.use('/api/v1/inventory', InventoryRouter);
+app.use('/api/v1/ngo', ngoRoutes);
 
 export {app};
