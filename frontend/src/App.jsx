@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        
         {/* Add more routes here */}
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
