@@ -1,10 +1,9 @@
-import React from 'react';
 
 const Blog = () => {
   const blogs = [
     {
       id: 1,
-      image: 'https://1.bp.blogspot.com/-ZkWC9H9Z7xE/Xy6J-_P1kgI/AAAAAAAAAAU/yRCb2ABdznA97f07B8tsc_9euJx4JaNyACLcBGAsYHQ/s700/191286_1.jpg', // Replace with your actual image URLs
+      image: 'https://1.bp.blogspot.com/-ZkWC9H9Z7xE/Xy6J-_P1kgI/AAAAAAAAAAU/yRCb2ABdznA97f07B8tsc_9euJx4JaNyACLcBGAsYHQ/s700/191286_1.jpg', 
       date: 'Sunday, 1 Jan 2023',
       title: 'Bill Walsh leadership lessons',
       description: 'Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?',
@@ -28,7 +27,7 @@ const Blog = () => {
     },
     {
       id: 4,
-      image: 'https://1.bp.blogspot.com/-ZkWC9H9Z7xE/Xy6J-_P1kgI/AAAAAAAAAAU/yRCb2ABdznA97f07B8tsc_9euJx4JaNyACLcBGAsYHQ/s700/191286_1.jpg', // Replace with your actual image URLs
+      image: 'https://1.bp.blogspot.com/-ZkWC9H9Z7xE/Xy6J-_P1kgI/AAAAAAAAAAU/yRCb2ABdznA97f07B8tsc_9euJx4JaNyACLcBGAsYHQ/s700/191286_1.jpg', 
       date: 'Sunday, 1 Jan 2023',
       title: 'Bill Walsh leadership lessons',
       description: 'Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?',
