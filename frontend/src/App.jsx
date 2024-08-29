@@ -4,6 +4,7 @@ import Login from './components/Login'; // Make sure the path is correct
 import SignUp from './components/SignUp';
 import Home from './components/Home'
 import Blog from './Components/Blog';
+import RegNgo from './components/RegNgo';
 import Navbar from './Navbar';
 import OpenCommunity from './Components/OpenCommunty';
 import Contact from './Components/Contact';
@@ -12,6 +13,7 @@ import DonorManagement from './Components/DonorManagement';
 import ImpactManagement from './Components/ImpactManagement';
 import StaffManagement from './Components/StaffManagement';
 import EventManagement from './Components/EventManagement';
+import AddBlog from './components/AddBlog';
 function App() {
   return (
     <Router>
@@ -21,15 +23,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blog />} />
+        <Route path="/AddBlog" element={<AddBlog/>}/>
         <Route path="/community" element={<OpenCommunity />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/inventory" element={<InventoryManagement />} />
-        <Route path="/donor" element={<DonorManagement
-         />} />
-         <Route path="/impact" element={<ImpactManagement />} />
-         <Route path="/staff" element={<StaffManagement />} />
-         <Route path="/event" element={<EventManagement />} />
-
 
         {/* Add more routes here */}
         {/* <Route path="/" element={<Home />} /> */}

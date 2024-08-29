@@ -52,6 +52,11 @@ const SignUp = () => {
           Already have an account? <Link to="/login" className="text-indigo-600 hover:underline">Login</Link>
         </p>
       </div>
+      <Link to="/RegNgo">
+      <button className=''> 
+        Register for a NGO
+      </button>
+      </Link>
       </div>
     </div>
 
