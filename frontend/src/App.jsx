@@ -17,6 +17,7 @@ import AddBlog from './components/AddBlog';
 import DonationManagement from './Components/DonationManagement';
 import MoneyTracking from './Components/MoneyTracking';
 import CrowdFunding from './Components/CrowdFunding';
+import Dashboard from './Components/Dashboard';
 function App() {
   return (
     <Router>
@@ -33,6 +34,8 @@ function App() {
         <Route path="DonorManagement" element={<DonorManagement />} />
         <Route path="MoneyTracking" element={<MoneyTracking/>} />
         <Route path="Crowd" element={<CrowdFunding/>} />
+        <Route path="Dashboard" element={<Dashboard/>} />
+
 
         {/* Add more routes here */}
         {/* <Route path="/" element={<Home />} /> */}
