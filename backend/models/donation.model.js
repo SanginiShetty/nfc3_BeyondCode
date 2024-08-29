@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 const donationSchema = new mongoose.Schema(
     {
         amount: {
@@ -24,4 +26,4 @@ const donationSchema = new mongoose.Schema(
     }
 );
 
-const Donation = mongoose.model("Donation", donationSchema);
+export const Donation = mongoose.model("Donation", donationSchema);

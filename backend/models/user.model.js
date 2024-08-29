@@ -43,7 +43,6 @@ const userShema = new mongoose.Schema(
             }
         ]
     },
-
     {
         timestamps: true,
     }
