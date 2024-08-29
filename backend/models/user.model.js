@@ -32,6 +32,16 @@ const userShema = new mongoose.Schema(
         refreshToken: {
             type: String,
         },
+        isAdmin:{
+            type: Boolean,
+            default: false
+        },
+        Donation:[
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Donation",
+            }
+        ]
     },
 
     {
