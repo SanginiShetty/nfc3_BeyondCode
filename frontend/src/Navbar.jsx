@@ -16,7 +16,7 @@ const Navbar = () => {
         </li>
         <li className="nav-item">
           <a href="/community" className="nav-link">Open Community</a>
-        </li>
+      </li>
       </ul>
     </nav>
   );

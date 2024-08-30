@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const GetInvolved = () => {
-    const [ngos, setNgos] = useState([]);  // Initialize as an empty array
+    const [ngos, setNgos] = useState([]);
+    const [showAll, setShowAll] = useState(false); // State to toggle between showing top 3 NGOs and all NGOs
 
     useEffect(() => {
         const fetchNgos = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/v1/ngo/getAll'); // Adjust the endpoint as necessary
-                console.log("Fetched NGOs data:", response.data); // Debugging log
-                setNgos(response.data.ngos); // Adjust if necessary, e.g., response.data.data
+                const response = await axios.get('http://localhost:3000/api/v1/ngo/getAll');
+                console.log("Fetched NGOs data:", response.data);
+                setNgos(response.data.ngos);
             } catch (error) {
                 console.error("Error fetching NGOs:", error);
             }
@@ -19,7 +20,8 @@ const GetInvolved = () => {
         fetchNgos();
     }, []);
 
-    console.log("ngos data", ngos);
+    // Determine how many NGOs to display based on the `showAll` state
+    const ngosToDisplay = showAll ? ngos : ngos.slice(0, 3);
 
     return (
         <div className="min-h-screen bg-gray-100 py-10">
@@ -39,7 +41,7 @@ const GetInvolved = () => {
                         </p>
                         {ngos.length > 0 ? (
                             <ul className="list-disc list-inside mb-4">
-                                {ngos.map(ngo => (
+                                {ngosToDisplay.map((ngo) => (
                                     <li key={ngo._id} className="mb-4">
                                         <h3 className="text-lg font-bold text-gray-800">{ngo.ngoName}</h3>
                                         <p className="text-gray-600">{ngo.ngoDesc}</p>
@@ -52,9 +54,19 @@ const GetInvolved = () => {
                         ) : (
                             <p>No NGOs available at the moment.</p>
                         )}
+                        {!showAll && ngos.length > 1 && (
+                            <Link to="/Ngos">
+                            <button
+                                onClick={() => setShowAll(true)}
+                                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
+                                >
+                                Show all
+                            </button>
+                                </Link>
+                        )}
                         <Link to="/RegNgo">
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200">
-                                Learn More
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200 mt-2">
+                                JOIN NOW
                             </button>
                         </Link>
                     </div>

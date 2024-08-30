@@ -1,14 +1,14 @@
-import { Blog } from '../models/blog.model.js';
-import { asyncHandler } from '../utils/asyncHandler.js';
+import { Blog } from "../models/blog.model.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import mongoose from 'mongoose'; // Import mongoose for ObjectId validation
 
 export const createBlog = asyncHandler(async (req, res) => {
     const { title, description, content, blogImage, tags, author, excerpt } = req.body;
-    console.log("req", req.data)
+
     // Check for required fields
     if (!title || !description || !content || !tags || !author) {
-
         res.status(400);
-        throw new Error('All required fields must be filled');
+        throw new Error("All required fields must be filled");
     }
 
     const blog = new Blog({
@@ -24,29 +24,57 @@ export const createBlog = asyncHandler(async (req, res) => {
     const createdBlog = await blog.save();
 
     res.status(201).json({
-        message: 'Blog post created successfully',
+        message: "Blog post created successfully",
         blog: createdBlog,
     });
 });
 
-
 export const getAllBlogs = asyncHandler(async (req, res) => {
-    const blogs = await Blog.find({}).sort({ createdAt: -1 }); 
+    const blogs = await Blog.find({}).sort({ createdAt: -1 });
     res.json({
-        message: 'All blog posts',
+        message: "All blog posts",
         blogs,
     });
 });
 
+export const getBlogs = asyncHandler(async (req, res) => {
+    const { id } = req.params;
 
-export const updateBlog = asyncHandler(async (req, res) => {
-    const { title, description, content, blogImage, tags, excerpt } = req.body;
+    // Validate ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400);
+        throw new Error("Invalid blog ID");
+    }
 
-    const blog = await Blog.findOne({ _id: req.params._id });
+    const blog = await Blog.findById(id);
 
     if (!blog) {
         res.status(404);
-        throw new Error('Blog post not found');
+        throw new Error("Blog post not found");
+    }
+
+    res.json({
+        message: "Blog post",
+        blog,
+    });
+});
+
+export const updateBlog = asyncHandler(async (req, res) => {
+    const { id } = req.params; // Use `id` instead of `_id`
+
+    // Validate ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400);
+        throw new Error("Invalid blog ID");
+    }
+
+    const { title, description, content, blogImage, tags, excerpt } = req.body;
+
+    const blog = await Blog.findById(id);
+
+    if (!blog) {
+        res.status(404);
+        throw new Error("Blog post not found");
     }
 
     blog.title = title || blog.title;
@@ -59,24 +87,30 @@ export const updateBlog = asyncHandler(async (req, res) => {
     const updatedBlog = await blog.save();
 
     res.json({
-        message: 'Blog post updated successfully',
+        message: "Blog post updated successfully",
         blog: updatedBlog,
     });
 });
 
-
 export const deleteBlog = asyncHandler(async (req, res) => {
-    const blog = await Blog.findOne({ _id: req.params._id });
+    const { id } = req.params; // Use `id` instead of `_id`
+
+    // Validate ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400);
+        throw new Error("Invalid blog ID");
+    }
+
+    const blog = await Blog.findById(id);
 
     if (!blog) {
         res.status(404);
-        throw new Error('Blog post not found');
+        throw new Error("Blog post not found");
     }
 
     await blog.remove();
 
     res.json({
-        message: 'Blog post deleted successfully',
+        message: "Blog post deleted successfully",
     });
 });
-

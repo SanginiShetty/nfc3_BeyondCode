@@ -22,6 +22,8 @@ import DonationManagement from './Components/DonationManagement';
 import MoneyTracking from './Components/MoneyTracking';
 import CrowdFunding from './Components/CrowdFunding';
 import Dashboard from './Components/Dashboard';
+import SingleBlog from './components/SingleBlog';
+import Ngos from './components/Ngos';
 function App() {
   return (
     <Router>
@@ -35,9 +37,11 @@ function App() {
         <Route path="/community" element={<OpenCommunity />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Info" element={<Info />} />
+        <Route path="/Ngos" element={<Ngos />} />
         <Route path="/DisplayInventory" element={<DisplayInventory />} />
         <Route path="/RegNgo" element={<RegNgo />} />
         <Route path="/get-involved" element={<GetInvolved />} />
+        <Route path="/blog/:id" element={<SingleBlog />} />
         
 
         {/* Add more routes here */}

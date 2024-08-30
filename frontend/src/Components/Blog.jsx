@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Card from './BlogCard'; // Adjust the import path as needed
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -17,28 +18,25 @@ const Blog = () => {
     fetchBlogs();
   }, []);
 
+  console.log("all blogs", blogs);
+
   return (
-    <div className="bg-gray-900 min-h-screen p-8">
-      <h1 className="text-4xl font-bold text-white mb-8">Welcome to the Blog</h1>
-      <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="bg-gray-900 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-4xl font-bold text-white mb-12 text-center">Welcome to the Blog</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {blogs.map(blog => (
-          <div key={blog._id} className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <img
-              src={blog.blogImage || 'default-image-url.jpg'} // Use a default image if blogImage is missing
-              alt={blog.title}
-              className="h-48 w-full object-cover rounded-t-lg mb-4"
-            />
-            <p className="text-purple-400 text-sm mb-2">{new Date(blog.createdAt).toDateString()}</p>
-            <h2 className="text-xl font-semibold text-white mb-2">{blog.title}</h2>
-            <p className="text-gray-300 mb-4">{blog.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {blog.tags.map((tag, index) => (
-                <span key={index} className="text-sm text-white bg-purple-500 px-2 py-1 rounded-full">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
+          <Card
+            key={blog._id}
+            title={blog.title}
+            imageUrl={blog.blogImage || 'https://via.placeholder.com/300'} // Use a placeholder image if blogImage is missing
+            description={blog.description}
+            link={`/blog/${blog._id}`} // Assuming you have a route for individual blog posts
+            author={blog.author}
+            tags={blog.tags}
+            excerpt={blog.excerpt}
+            comments={blog.comments}
+            likes={blog.likes}
+          />
         ))}
       </div>
     </div>
