@@ -28,7 +28,7 @@ const Blog = () => {
           <Card
             key={blog._id}
             title={blog.title}
-            imageUrl={blog.blogImage || 'https://via.placeholder.com/300'} // Use a placeholder image if blogImage is missing
+            imageUrl={blog.blogImage || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0keAOPJQVK4bY3iRYmaJi1U0mMJ9uddIl7w&s'} // Use a placeholder image if blogImage is missing
             description={blog.description}
             link={`/blog/${blog._id}`} // Assuming you have a route for individual blog posts
             author={blog.author}

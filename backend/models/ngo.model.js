@@ -55,7 +55,7 @@ const ngoSchema = new mongoose.Schema(
         }],
         ngoImage: {
             type: String,
-            default: "https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account"
+            default: "https://en-media.thebetterindia.com/uploads/2009/01/crylogo-wit-standup.jpg"
         }
     },
     { timestamps: true }
